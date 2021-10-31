@@ -23,7 +23,7 @@ int main() {
     FILE *in=fopen("../in.txt","r");
     int a, b;
     while((fscanf(in, "%d %d", &a, &b))!=EOF)
-        MT_vertex(&root, a, b);
+        MT_edge(&root, a, b);
     fclose(in);
 //    struct MTNode *curr = root = MT_create_node(1);
 //    curr = MT_add_child(root, 2);

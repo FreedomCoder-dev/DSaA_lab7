@@ -5,7 +5,7 @@
 #include "multitree.h"
 
 
-struct MTNode *MT_vertex(struct MTNode **tree, TNode from, TNode to) {
+struct MTNode *MT_edge(struct MTNode **tree, TNode from, TNode to) {
     if (!*tree) return MT_add_child((*tree = MT_create_node(from)), to);
     return MT_add_child(MT_find(*tree, from), to);
 }

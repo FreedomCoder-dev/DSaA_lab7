@@ -19,7 +19,7 @@ struct MTNode
 #define MT_STRATEGY_BRANCHES 1
 #define MT_STRATEGY_ALL 2
 
-struct MTNode* MT_vertex(struct MTNode **tree, TNode from, TNode to);
+struct MTNode* MT_edge(struct MTNode **tree, TNode from, TNode to);
 struct MTNode* MT_find(struct MTNode *branch, TNode element);
 struct MTNode* MT_create_node(TNode element);
 struct MTNode* MT_add_child(struct MTNode* tree, TNode element);
