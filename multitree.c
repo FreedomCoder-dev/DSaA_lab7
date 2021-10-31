@@ -66,7 +66,8 @@ struct MTNode *MT_get_next_sibling(struct MTNode *tree) {
     return tree->right;
 }
 
-void MT_consume_internal(struct MTNode *tree, void (*consumer)(struct MTNode* element, int depth), int bt_strategy, int depth) {
+void MT_consume_internal(struct MTNode *tree, void (*consumer)(struct MTNode *element, int depth), int bt_strategy,
+                         int depth) {
     if (!tree) return;
     switch (bt_strategy) {
         case MT_STRATEGY_BRANCHES:
@@ -83,11 +84,11 @@ void MT_consume_internal(struct MTNode *tree, void (*consumer)(struct MTNode* el
     MT_consume_internal(tree->right, consumer, bt_strategy, depth);
 }
 
-void MT_consume(struct MTNode *tree, void (*consumer)(struct MTNode* element, int depth), int bt_strategy) {
+void MT_consume(struct MTNode *tree, void (*consumer)(struct MTNode *element, int depth), int bt_strategy) {
     return MT_consume_internal(tree, consumer, bt_strategy, 0);
 }
 
-void MT_consume_layer(struct MTNode *tree, void (*consumer)(struct MTNode* element), int layer_depth) {
+void MT_consume_layer(struct MTNode *tree, void (*consumer)(struct MTNode *element), int layer_depth) {
     if (!tree) return;
     if (layer_depth)
         while (tree) {

@@ -3,26 +3,29 @@
 
 struct MTNode *root;
 
-void print_node2(struct MTNode* data, int depth) {
+void print_node2(struct MTNode *data, int depth) {
     printf("%d ", data->data);
 }
-void print_node(struct MTNode* data) {
+
+void print_node(struct MTNode *data) {
     printf("%d ", data->data);
 }
-void print_node_altered(struct MTNode* data, int depth) {
-    while (depth --)
+
+void print_node_altered(struct MTNode *data, int depth) {
+    while (depth--)
         printf("--");
     printf("%d\n", data->data);
 }
-void print_node_pair(struct MTNode* data, int depth) {
-    struct MTNode * node = MT_get_parent(data);
+
+void print_node_pair(struct MTNode *data, int depth) {
+    struct MTNode *node = MT_get_parent(data);
     printf("%d %d\n", node ? node->data : -1, data->data);
 }
 
 int main() {
-    FILE *in=fopen("../in.txt","r");
+    FILE *in = fopen("../in.txt", "r");
     int a, b;
-    while((fscanf(in, "%d %d", &a, &b))!=EOF)
+    while ((fscanf(in, "%d %d", &a, &b)) != EOF)
         MT_edge(&root, a, b);
     fclose(in);
 //    struct MTNode *curr = root = MT_create_node(1);
